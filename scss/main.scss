@@ -1,0 +1,101 @@
+$glow1: #fff760;
+$glow2: #35eeff;
+$second: #797f7f;
+
+html {
+  height: 100%;
+  width: 100%;
+  background-color: $second;
+  }
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  }
+
+.container {
+  width: 20vw;
+  background-color: $second;
+  height: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: Rockwell;
+  font-weight: bold;
+  position: relative;
+}
+
+.container::before, .container::after {
+  position: absolute;
+  content: '';
+  top: -5%;
+  left: -5%;
+  height: 110%;
+  width: 110%;
+  border-radius: 50%;
+  opacity: 0.5;
+  filter: blur(60px);
+}
+
+.container::before {
+  background-color: $glow2;
+  z-index: -2;
+  animation: backGlow2 15s ease infinite;
+}
+
+.container::after {
+  background-color: $glow1;
+  z-index: -1;
+  animation: backGlow1 15s ease infinite;
+}
+
+@keyframes backGlow1 {
+  0% {
+    transform: translate(10%, 10%) scale(1);
+    opacity: 0.5; /*Deckkraft Stärke*/
+  }
+  25% {
+    transform: translate(10%, 10%) scale(0.8);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(10%, 10%) scale(1.2);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translate(10%, 10%) scale(1.1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(10%, 10%) scale(1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes backGlow2 {
+  0% {
+    transform: translate(10%, 10%) scale(1);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(10%, 10%) scale(1.2);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(10%, 10%) scale(0.9);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate(10%, 10%) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(10%, 10%) scale(1);
+    opacity: 0.5;
+  }
+}
